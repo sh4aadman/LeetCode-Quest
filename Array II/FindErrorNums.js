@@ -9,8 +9,6 @@ function findErrorNums(nums) {
     seen.add(num);
   }
 
-  console.log(seen);
-
   for (var i = 1; i <= n; i++) {
     if (!seen.has(i)) {
       var missing = i;
