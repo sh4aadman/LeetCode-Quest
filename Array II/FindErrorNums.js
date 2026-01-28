@@ -1,29 +1,27 @@
-// function findErrorNums(nums) {
-//   var map = new Map();
-//   var duplicate = 0;
-//   var missing = 0;
-//   for (var num of nums) {
-//     if (!map.has(num)) {
-//       map.set(num, 1);
-//     } else {
-//       map.set(num, map.get(num) + 1);
-//     }
-//   }
-//   console.log(map);
-//   for (var i = 1; i <= nums.length; i++) {
-//     if (map.has(i)) {
-//       if (map.get(i) > 1) {
-//         duplicate = nums[i];
-//       }
-//     } else {
-//       missing = i;
-//     }
-//   }
+function findErrorNums(nums) {
+  var n = nums.length;
+  var seen = new Set();
 
-//   return [duplicate, missing];
-// }
+  for (var num of nums) {
+    if (seen.has(num)) {
+      duplicate = num;
+    }
+    seen.add(num);
+  }
 
-console.log(findErrorNums([2, 2]));
+  console.log(seen);
+
+  for (var i = 1; i <= n; i++) {
+    if (!seen.has(i)) {
+      var missing = i;
+    }
+  }
+
+  return [duplicate, missing];
+}
+
+console.log(findErrorNums([1, 2, 2, 4]));
+console.log(findErrorNums([1, 1]));
 
 // Time Complexity - O(n)
 // Space Complexity - O(n)
